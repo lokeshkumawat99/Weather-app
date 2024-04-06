@@ -19,12 +19,12 @@ function App() {
   }
 
   const removeHistory = (index) => {
-    if (histroy.length == 1) {
+    if (histroy.length === 1) {
       clearAll();
     } else {
       const newHistroy = histroy.filter(
         (h, i) => {
-          if (i == index) return false;
+          if (i === index) return false;
           else return true
         }
       )
@@ -46,13 +46,13 @@ function App() {
           let flag = false;
 
           for (var i = 0; i < histroy.length; i++) {
-            if (histroy[i].city == city) {
+            if (histroy[i].city === city) {
               flag = true;
               break;
 
             }
           }
-          if (flag == false) {
+          if (flag === false) {
             setHistroy([
               ...histroy, {
                 city,
@@ -78,7 +78,7 @@ function App() {
 
   useEffect(
     () => {
-      if (histroy.length != 0) {
+      if (histroy.length !== 0) {
         localStorage.setItem("histroy", JSON.stringify(histroy));
       }
     },
@@ -88,7 +88,7 @@ function App() {
   useEffect(
     () => {
       const lsHistroy = localStorage.getItem("histroy");
-      if (lsHistroy != undefined) {
+      if (lsHistroy !== undefined) {
         setHistroy(JSON.parse(lsHistroy));
       }
     },
